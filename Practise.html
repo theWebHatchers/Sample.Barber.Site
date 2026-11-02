@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sharp &amp; Co. Barbers</title>
+<meta name="description" content="Classic cuts, fades and beard trims. Walk-ins welcome, bookings online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Archivo+Narrow:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0f1c33; --paper:#f7f7f4; --pole:#c8372d; --steel:#5d6b82; --line:#d9dce2; --card:#ffffff;
+  --head:"Archivo Narrow","Arial Narrow",Arial,sans-serif;
+  --body:"Archivo",system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{--ink:#f1f2f5; --paper:#0f1c33; --steel:#a3adbf; --line:#273656; --card:#16264a}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pole);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+section{padding:64px 0}
+h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0}
+h2{font-size:2.2rem;margin-bottom:8px}
+.sub{color:var(--steel);margin:0 0 32px;max-width:55ch}
+
+/* barber pole stripe: the one memorable element */
+.pole{height:14px;background:repeating-linear-gradient(-45deg,var(--pole) 0 16px,#fff 16px 32px,#27408b 32px 48px,#fff 48px 64px)}
+
+header.top{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;flex-wrap:wrap}
+.logo{font-family:var(--head);font-weight:700;font-size:1.4rem;text-decoration:none}
+.nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav a{text-decoration:none;font-weight:600}
+.nav a:hover{color:var(--pole)}
+
+.hero{padding:88px 0 72px}
+.hero h1{font-size:clamp(3rem,10vw,6.5rem);font-weight:700;letter-spacing:-.01em;max-width:11ch}
+.hero p{font-size:1.15rem;max-width:45ch;color:var(--steel);margin:20px 0 28px}
+.btn{display:inline-block;background:var(--pole);color:#fff;padding:14px 26px;font-weight:800;text-decoration:none;border:0;border-radius:4px;font:inherit;font-weight:800;cursor:pointer}
+.btn:hover{filter:brightness(1.1)}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink);margin-left:8px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.style{background:var(--card);border:1px solid var(--line);padding:20px;border-left:6px solid var(--pole)}
+.style h3{font-size:1.35rem;display:flex;justify-content:space-between;gap:12px}
+.style p{margin:8px 0 0;color:var(--steel);font-size:.95rem}
+
+.review{background:var(--card);border:1px solid var(--line);padding:22px;margin:0}
+.review p{margin:0 0 12px}
+.review footer{font-weight:600;font-size:.9rem;color:var(--steel)}
+.stars{color:var(--pole);letter-spacing:2px}
+
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px}
+table{width:100%;border-collapse:collapse}
+td{padding:10px 0;border-bottom:1px solid var(--line)}
+td:last-child{text-align:right}
+tr.today{font-weight:800;color:var(--pole)}
+
+form{display:grid;gap:14px}
+label{font-weight:600;font-size:.95rem;display:grid;gap:6px}
+input,select,textarea{font:inherit;padding:12px;border:1px solid var(--steel);border-radius:4px;background:var(--card);color:var(--ink);width:100%}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.row{grid-template-columns:1fr}.btn.ghost{margin:8px 0 0}}
+.note{font-size:.85rem;color:var(--steel)}
+
+.social{display:flex;gap:12px;flex-wrap:wrap}
+.social a{border:2px solid var(--ink);padding:10px 18px;font-weight:700;text-decoration:none;border-radius:4px}
+.social a:hover{background:var(--ink);color:var(--paper)}
+
+footer.site{border-top:1px solid var(--line);padding:28px 0;color:var(--steel);font-size:.9rem}
+.alt{background:color-mix(in srgb,var(--steel) 10%,var(--paper))}
+</style>
+</head>
+<body>
+
+<div class="pole" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap nav">
+    <a class="logo" href="#">Sharp &amp; Co.</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#styles">Styles</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#hours">Hours</a></li>
+        <li><a href="#book">Book</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <h1>Sharp cuts. No fuss.</h1>
+    <p>Classic barbering, modern fades and proper beard work. Walk-ins welcome, or book your chair online.</p>
+    <a class="btn" href="#book">Book a cut</a>
+    <a class="btn ghost" href="tel:+440000000000">Call the shop</a>
+  </div>
+</section>
+
+<section id="styles" class="alt">
+  <div class="wrap">
+    <h2>Styles we cut</h2>
+    <p class="sub">Not sure what you want? Bring a photo and we’ll talk it through.</p>
+    <div class="grid">
+      <article class="style"><h3>Skin fade <span>£20</span></h3><p>Low, mid or high, blended down to the skin.</p></article>
+      <article class="style"><h3>Taper fade <span>£18</span></h3><p>Clean and neat at the neckline and sides.</p></article>
+      <article class="style"><h3>Classic scissor cut <span>£18</span></h3><p>Short back and sides or longer on top, all by scissor.</p></article>
+      <article class="style"><h3>Crop &amp; textured top <span>£18</span></h3><p>Easy to style with a crisp fringe.</p></article>
+      <article class="style"><h3>Buzz cut <span>£12</span></h3><p>One length all over, finished with a neck tidy.</p></article>
+      <article class="style"><h3>Beard trim <span>£10</span></h3><p>Shaped, lined up and finished with a hot towel.</p></article>
+      <article class="style"><h3>Cut &amp; beard <span>£27</span></h3><p>Any cut with a full beard trim.</p></article>
+      <article class="style"><h3>Kids’ cut <span>£14</span></h3><p>Under 12s. Patient barbers, no tears.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <h2>What customers say</h2>
+    <p class="sub">Swap these for your real reviews.</p>
+    <div class="grid">
+      <blockquote class="review"><p class="stars" aria-label="5 out of 5 stars">★★★★★</p><p>Best fade I’ve had in years. Quick, friendly and it grew out really well.</p><footer>Daniel R.</footer></blockquote>
+      <blockquote class="review"><p class="stars" aria-label="5 out of 5 stars">★★★★★</p><p>Took my son for his first proper haircut. They were brilliant with him.</p><footer>Priya S.</footer></blockquote>
+      <blockquote class="review"><p class="stars" aria-label="4 out of 5 stars">★★★★☆</p><p>Great beard shape-up and the hot towel is a nice touch. Can get busy on Saturdays, so book ahead.</p><footer>Mark T.</footer></blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="hours" class="alt">
+  <div class="wrap two">
+    <div>
+      <h2>Opening times</h2>
+      <p class="sub">Walk-ins taken when a chair is free.</p>
+      <table>
+        <tr data-day="1"><td>Monday</td><td>9:00 – 18:00</td></tr>
+        <tr data-day="2"><td>Tuesday</td><td>9:00 – 18:00</td></tr>
+        <tr data-day="3"><td>Wednesday</td><td>9:00 – 18:00</td></tr>
+        <tr data-day="4"><td>Thursday</td><td>9:00 – 20:00</td></tr>
+        <tr data-day="5"><td>Friday</td><td>9:00 – 20:00</td></tr>
+        <tr data-day="6"><td>Saturday</td><td>8:30 – 17:00</td></tr>
+        <tr data-day="0"><td>Sunday</td><td>Closed</td></tr>
+      </table>
+    </div>
+    <div>
+      <h2>Find us</h2>
+      <p class="sub">12 High Street<br>Your Town, AB1 2CD<br><a href="tel:+440000000000">01234 567 890</a></p>
+      <h3 style="margin-bottom:12px">Follow the shop</h3>
+      <div class="social">
+        <a href="https://instagram.com/yourshop" rel="noopener">Instagram</a>
+        <a href="https://facebook.com/yourshop" rel="noopener">Facebook</a>
+        <a href="https://tiktok.com/@yourshop" rel="noopener">TikTok</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="book">
+  <div class="wrap two">
+    <div>
+      <h2>Book your chair</h2>
+      <p class="sub">Tell us what you’d like and when. We’ll confirm by text or email, usually within a few hours.</p>
+    </div>
+    <!-- Replace the action URL with your own form endpoint (e.g. Formspree) -->
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <label>Name <input name="name" required autocomplete="name"></label>
+      <div class="row">
+        <label>Phone <input name="phone" type="tel" required autocomplete="tel"></label>
+        <label>Email <input name="email" type="email" autocomplete="email"></label>
+      </div>
+      <label>Service
+        <select name="service" required>
+          <option value="">Choose a service</option>
+          <option>Skin fade</option><option>Taper fade</option><option>Classic scissor cut</option>
+          <option>Crop &amp; textured top</option><option>Buzz cut</option><option>Beard trim</option>
+          <option>Cut &amp; beard</option><option>Kids’ cut</option>
+        </select>
+      </label>
+      <div class="row">
+        <label>Date <input name="date" type="date" required id="date"></label>
+        <label>Preferred time <input name="time" type="time" min="08:30" max="19:30" step="900" required></label>
+      </div>
+      <label>Notes <textarea name="notes" rows="3" placeholder="Anything we should know?"></textarea></label>
+      <button class="btn" type="submit">Request booking</button>
+      <p class="note">Closed Sundays. Your booking is confirmed once we reply.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">© <span id="year">2026</span> Sharp &amp; Co. Barbers. All rights reserved.</div>
+</footer>
+
+<script>
+  // Highlight today's opening hours
+  var today = new Date().getDay();
+  var row = document.querySelector('tr[data-day="' + today + '"]');
+  if (row) row.classList.add('today');
+  // Stop past dates being picked
+  document.getElementById('date').min = new Date().toISOString().split('T')[0];
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
